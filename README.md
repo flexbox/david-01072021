@@ -8,8 +8,9 @@
 - [ ] `@shopify/restyle`
 - [ ] `react-query`
   - [with websockets](https://tkdodo.eu/blog/using-web-sockets-with-react-query)
+
+- [->] Added github action
 - [ ] Shipped on Vercel
-- [x] Added github action
 
 ## Getting Started
 
