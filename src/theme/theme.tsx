@@ -2,13 +2,19 @@ import { createTheme } from "@shopify/restyle";
 
 import { palette } from "./palette";
 
+// Extracting values from palette and use the material design naming spec
+// @link https://material.io/design/color/the-color-system.html#color-theme-creation
+
 const theme = createTheme({
   colors: {
     ...palette,
-    background: palette.white,
+    mainBackground: palette["blue-gray-100"],
+    surfaceBackground: palette.white,
     text: palette.black,
     textHint: palette["blue-gray-500"],
     textOnDark: palette.white,
+    icon: palette.black,
+    iconOnDark: palette.white,
   },
   spacing: {
     xs: 4,
@@ -20,6 +26,13 @@ const theme = createTheme({
     "3xl": 96,
     "4xl": 192,
     "5xl": 256,
+  },
+  icon: {
+    xs: 14,
+    s: 16,
+    m: 32,
+    l: 48,
+    xl: 80,
   },
   breakpoints: {
     phone: 0,
@@ -57,12 +70,18 @@ const theme = createTheme({
       fontWeight: "500",
       fontSize: 16,
       lineHeight: 24,
+      textTransform: "uppercase",
     },
     s1: {
       fontSize: 14,
     },
     s2: {
       fontSize: 12,
+      fontWeight: "500",
+    },
+    buttonLabel: {
+      fontSize: 16,
+      lineHeight: 24,
       fontWeight: "500",
     },
   },

@@ -1,16 +1,14 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { ThemeProvider } from "@shopify/restyle";
-
 
 import OrderbookScreen from "~/screens/OrderbookScreen";
-import theme from "~/theme/theme";
+import Providers from "~/components/Providers";
 
 const App = () => (
-  <ThemeProvider theme={theme}>
+  <Providers>
     <StatusBar style="auto" />
     <OrderbookScreen />
-  </ThemeProvider>
+  </Providers>
 );
 
 export default App;

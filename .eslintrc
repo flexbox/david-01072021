@@ -1,5 +1,9 @@
 {
   "extends": "react-native-wcandillon",
+  "rules": {
+    "camelcase": "off",
+    "@typescript-eslint/camelcase": ["warn"]
+  },
   "settings": {
     "import/resolver": {
       "babel-plugin-root-import": {
