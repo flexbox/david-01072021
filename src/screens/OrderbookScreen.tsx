@@ -1,4 +1,7 @@
 import React from "react";
+import { ScrollView } from "react-native";
+
+import { orderbook } from "./api";
 
 import { Box } from "~/components/Box";
 import { OrderPriceList } from "~/components/OrderPriceList";
@@ -13,38 +16,8 @@ const OrderbookScreen = () => {
     data
   );
 
-  const orderbook = [
-    {
-      feed: "book",
-      product_id: "PI_XBTUSD",
-      side: "buy",
-      seq: 241709356,
-      price: 33916.5,
-      qty: 22286.0,
-      timestamp: 1624542353450,
-    },
-    {
-      feed: "book",
-      product_id: "PI_XBTUSD",
-      side: "sell",
-      seq: 241709357,
-      price: 33971.5,
-      qty: 0.0,
-      timestamp: 1624542353450,
-    },
-    {
-      feed: "book",
-      product_id: "PI_XBTUSD",
-      side: "sell",
-      seq: 241709358,
-      price: 33973.5,
-      qty: 33617.0,
-      timestamp: 1624542353450,
-    },
-  ];
-
   return (
-    <Box>
+    <ScrollView>
       <Box
         paddingHorizontal="m"
         paddingVertical="s"
@@ -57,7 +30,7 @@ const OrderbookScreen = () => {
         <OrderSelectBox />
       </Box>
       <OrderPriceList data={orderbook} />
-    </Box>
+    </ScrollView>
   );
 };
 

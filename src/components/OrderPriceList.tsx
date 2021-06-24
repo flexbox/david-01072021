@@ -13,17 +13,17 @@ interface OrderPriceListProps {
 const OrderHead = () => (
   <Box flexDirection="row" justifyContent="space-between">
     <Box flex={1} p="s">
-      <Text variant="p2" color="textHint" textAlign="center">
+      <Text variant="p2" color="textHint" textAlign="right">
         Price
       </Text>
     </Box>
     <Box flex={1} p="s">
-      <Text variant="p2" color="textHint" textAlign="center">
+      <Text variant="p2" color="textHint" textAlign="right">
         Size
       </Text>
     </Box>
     <Box flex={1} p="s">
-      <Text variant="p2" color="textHint" textAlign="center">
+      <Text variant="p2" color="textHint" textAlign="right">
         Total
       </Text>
     </Box>
@@ -45,7 +45,17 @@ const OrderSkeleton = () => (
 const OrderRow = ({ item }: { item: Order }) => {
   return (
     <Box flexDirection="row" justifyContent="space-between">
-      <Text variant="p1">{item.price}</Text>
+      <Box flex={1} p="s">
+        <Text variant="p1" color={item.side} textAlign="right">
+          {item.price}
+        </Text>
+      </Box>
+      <Box flex={1} p="s">
+        <Text variant="p1" textAlign="right">
+          {item.qty}
+        </Text>
+      </Box>
+      <Box flex={1} p="s"></Box>
     </Box>
   );
 };
@@ -54,7 +64,6 @@ export const OrderPriceList = ({ data }: OrderPriceListProps) => {
   return (
     <>
       <OrderHead />
-      <OrderSkeleton />
       <OrderSkeleton />
       {data.map((item: Order) => {
         return <OrderRow item={item} />;

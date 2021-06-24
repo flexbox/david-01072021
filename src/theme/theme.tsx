@@ -16,6 +16,8 @@ const theme = createTheme({
     textOnDark: palette.white,
     icon: palette.black,
     iconOnDark: palette.white,
+    sell: palette["red-500"],
+    buy: palette["green-500"],
   },
   spacing: {
     xs: 4,

@@ -1,13 +1,9 @@
 export interface Order {
   feed: string;
   product_id: string;
-  side: string;
+  side: "buy" | "sell" | string;
   seq: number;
   price: number;
   qty: number;
   timestamp: number;
-}
-
-export interface Orderbook {
-  [Order]
 }
