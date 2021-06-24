@@ -10,6 +10,7 @@ const theme = createTheme({
     ...palette,
     mainBackground: palette["blue-gray-100"],
     surfaceBackground: palette.white,
+    skeletonBackground: palette["blue-gray-200"],
     text: palette.black,
     textHint: palette["blue-gray-500"],
     textOnDark: palette.white,

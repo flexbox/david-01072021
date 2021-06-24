@@ -13,7 +13,7 @@ const OrderbookScreen = () => {
     data
   );
 
-  const feedbook = [
+  const orderbook = [
     {
       feed: "book",
       product_id: "PI_XBTUSD",
@@ -56,8 +56,7 @@ const OrderbookScreen = () => {
         <Text variant="h2">Orderbook</Text>
         <OrderSelectBox />
       </Box>
-      <OrderPriceList type="buy" />
-      <OrderPriceList type="sell" />
+      <OrderPriceList data={orderbook} />
     </Box>
   );
 };

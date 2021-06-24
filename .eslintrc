@@ -1,8 +1,7 @@
 {
   "extends": "react-native-wcandillon",
   "rules": {
-    "camelcase": "off",
-    "@typescript-eslint/camelcase": ["warn"]
+    "camelcase": "off"
   },
   "settings": {
     "import/resolver": {
