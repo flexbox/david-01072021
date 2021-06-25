@@ -32,3 +32,9 @@ websocat wss://www.cryptofacilities.com/ws/v1
 ```console
 {"event":"subscribe","feed":"book","product_ids":["PI_XBTUSD"]}
 ```
+
+
+hint
+
+- https://www.apollographql.com/docs/react/api/link/apollo-link-ws/
+- https://tkdodo.eu/blog/using-web-sockets-with-react-query
