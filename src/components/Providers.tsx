@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactChild, ReactChildren } from "react";
 import { ThemeProvider } from "@shopify/restyle";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { SafeAreaView } from "react-native";
@@ -7,7 +7,7 @@ import { Box } from "~/components/Box";
 import theme from "~/theme/theme";
 
 interface ProvidersProps {
-  children: ReactElement;
+  children: ReactChild | ReactChild[] | ReactChildren | ReactChildren[];
 }
 
 const queryClient = new QueryClient({
