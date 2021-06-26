@@ -1,7 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ScrollView } from "react-native";
-
-import { orderbook } from "./api";
 
 import { Box } from "~/components/Box";
 import { OrderPriceList } from "~/components/OrderPriceList";
@@ -10,11 +8,18 @@ import { Text } from "~/components/Text";
 import { useReactQuerySubscription } from "~/hooks/useReactQuerySubscription";
 
 const OrderbookScreen = () => {
-  const data = useReactQuerySubscription();
-  console.log(
-    "file: OrderbookScreen.tsx ~ line 9 ~ OrderbookScreen ~ data",
-    data
-  );
+  const send = useReactQuerySubscription();
+
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [orderbook, setOrderbook] = useState([]);
+
+  useEffect(() => {
+    // send({
+    //   operation: "update",
+    //   entity: ["orderbook"],
+    //   payload: { event: "subscribe", feed: "book", product_ids: ["PI_XBTUSD"] },
+    // });
+  }, [send]);
 
   return (
     <ScrollView>
@@ -29,7 +34,7 @@ const OrderbookScreen = () => {
         <Text variant="h2">Orderbook</Text>
         <OrderSelectBox />
       </Box>
-      <OrderPriceList data={orderbook} />
+      <OrderPriceList data={orderbook} isLoading={isLoading} />
     </ScrollView>
   );
 };

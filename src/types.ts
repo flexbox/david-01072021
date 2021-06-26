@@ -1,3 +1,9 @@
+export interface OrderDetailData {
+  event: string;
+  feed: string;
+  product_ids: [string];
+}
+
 export interface Order {
   feed: string;
   product_id: string;
