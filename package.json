@@ -28,7 +28,8 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz",
     "react-native-modal-selector": "^2.0.3",
     "react-native-web": "~0.13.12",
-    "react-query": "^3.17.2"
+    "react-query": "^3.17.2",
+    "react-use-websocket": "^2.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
