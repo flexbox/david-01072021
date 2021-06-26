@@ -8,6 +8,7 @@ import { palette } from "./palette";
 const theme = createTheme({
   colors: {
     ...palette,
+    primary: palette["blue-500"],
     mainBackground: palette["blue-gray-100"],
     surfaceBackground: palette.white,
     skeletonBackground: palette["blue-gray-200"],
