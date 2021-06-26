@@ -60,13 +60,26 @@ const OrderRow = ({ item }: { item: Order }) => {
   );
 };
 
-export const OrderPriceList = ({ data }: OrderPriceListProps) => {
+export const OrderPriceList = ({
+  data,
+  isLoading = true,
+}: OrderPriceListProps) => {
+  if (isLoading) {
+    return (
+      <>
+        <OrderHead />
+        {[1, 2, 3, 4, 5, 6].map(() => (
+          <OrderSkeleton />
+        ))}
+      </>
+    );
+  }
+
   return (
     <>
       <OrderHead />
-      <OrderSkeleton />
       {data.map((item: Order) => {
-        return <OrderRow item={item} />;
+        return <OrderRow item={item} key={item.timestamp} />;
       })}
     </>
   );

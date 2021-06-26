@@ -5,5 +5,5 @@ export default {
     image: "./assets/splash.png",
     resizeMode: "contain",
   },
-  backgroundColor: "transparent",
+  backgroundColor: "#FFFFFF",
 };

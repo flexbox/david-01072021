@@ -1,14 +1,19 @@
 # Orderbook
 
+## TODO
+
+- [ ] `react-query`
+
+hint
+
+- https://tkdodo.eu/blog/using-web-sockets-with-react-query
+
 ## Tooling
 
 - [x] TypeScript
 - [x] `react-native-web`
 - [x] `eslint`|`prettier`
 - [x] `@shopify/restyle`
-- [ ] `react-query`
-
-  - [with websockets](https://tkdodo.eu/blog/using-web-sockets-with-react-query)
 
 - [->] Added github action
 - [ ] Shipped on Vercel
@@ -26,17 +31,16 @@ yarn ios|android
 - [cryptofacilities Websocket API](https://support.cryptofacilities.com/hc/en-us/articles/360000538773-Book)
 
 ```console
+# connect to API
+
 websocat wss://www.cryptofacilities.com/ws/v1
 ```
 
 ```console
+# Get orderbook data
+
 {"event":"subscribe","feed":"book","product_ids":["PI_XBTUSD"]}
 ```
-
-hint
-
-- https://www.apollographql.com/docs/react/api/link/apollo-link-ws/
-- https://tkdodo.eu/blog/using-web-sockets-with-react-query
 
 ## Credentials
 
