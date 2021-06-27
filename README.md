@@ -1,5 +1,14 @@
 # Orderbook
 
+## Tooling
+
+- [x] TypeScript
+- [x] `react-native-web`
+- [x] `eslint`|`prettier`
+- [x] `@shopify/restyle`
+- [x] Shipped on Vercel
+- [-] Added github action
+
 ## Getting Started
 
 ```console
