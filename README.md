@@ -1,23 +1,5 @@
 # Orderbook
 
-## TODO
-
-- [ ] `react-query`
-
-hint
-
-- https://tkdodo.eu/blog/using-web-sockets-with-react-query
-
-## Tooling
-
-- [x] TypeScript
-- [x] `react-native-web`
-- [x] `eslint`|`prettier`
-- [x] `@shopify/restyle`
-
-- [->] Added github action
-- [ ] Shipped on Vercel
-
 ## Getting Started
 
 ```console
@@ -45,3 +27,12 @@ websocat wss://www.cryptofacilities.com/ws/v1
 ## Credentials
 
 - Thanks [to Madison Apple](https://thenounproject.com/search/?q=kraken&i=1122668)
+
+## TODO
+
+- [ ] `react-query`
+- [ ] Shipped on Vercel
+
+hint
+
+- https://tkdodo.eu/blog/using-web-sockets-with-react-query
