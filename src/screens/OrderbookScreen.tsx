@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { ScrollView } from "react-native";
 
 import { Box } from "~/components/Box";
+import { Button } from "~/components/Button";
 import { OrderPriceList } from "~/components/OrderPriceList";
-import { OrderSelectBox } from "~/components/OrderSelectBox";
+import { SelectBox } from "~/components/SelectBox";
+import { queryClient } from "~/components/Providers";
 import { Text } from "~/components/Text";
 import { useReactQuerySubscription } from "~/hooks/useReactQuerySubscription";
 
@@ -14,12 +16,17 @@ const OrderbookScreen = () => {
   const [orderbook, setOrderbook] = useState([]);
 
   useEffect(() => {
-    // send({
-    //   operation: "update",
-    //   entity: ["orderbook"],
-    //   payload: { event: "subscribe", feed: "book", product_ids: ["PI_XBTUSD"] },
-    // });
-  }, [send]);
+    const data = queryClient.getQueryData("orderbook");
+  });
+
+  const handlePress = () => {
+    setIsLoading(false);
+    send({
+      event: "subscribe",
+      feed: "book",
+      product_ids: ["PI_XBTUSD"],
+    });
+  };
 
   return (
     <ScrollView>
@@ -32,9 +39,10 @@ const OrderbookScreen = () => {
         justifyContent="space-between"
       >
         <Text variant="h2">Orderbook</Text>
-        <OrderSelectBox />
+        <SelectBox />
       </Box>
       <OrderPriceList data={orderbook} isLoading={isLoading} />
+      <Button onPress={handlePress}>Open connexion</Button>
     </ScrollView>
   );
 };

@@ -10,7 +10,7 @@ interface ProvidersProps {
   children: ReactChild | ReactChild[] | ReactChildren | ReactChildren[];
 }
 
-const queryClient = new QueryClient({
+export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: Infinity,

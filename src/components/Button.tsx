@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { TextProps, TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import {
   useRestyle,
   spacing,

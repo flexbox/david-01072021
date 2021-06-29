@@ -6,20 +6,47 @@ import { OrderDetailData } from "~/types";
 // TODO: Add .env
 const WS_API = "wss://www.cryptofacilities.com/ws/v1";
 
-type InvalidateEvent = {
-  operation: "invalidate";
-  entity: Array<string>;
-  id?: number;
+type InvalidEvent = {
+  event: "error";
+  message: string;
 };
 
-type UpdateEvent = {
-  operation: "update";
-  entity: Array<string>;
-  // id: number;
-  payload: Partial<OrderDetailData>;
+type SubscribedEvent = {
+  event: "subscribe";
+  feed: "book";
+  product_ids: ["PI_XBTUSD"];
 };
 
-type WebSocketEvent = InvalidateEvent | UpdateEvent;
+type SubscriptionSnapshot = {
+  feed: "book_snapshot";
+  product_id: "PI_XBTUSD" | string;
+  timestamp: Date;
+  seq: number;
+  tickSize: null;
+  bids: [
+    {
+      price: number;
+      qty: number;
+    }
+  ];
+  asks: [
+    {
+      price: number;
+      qty: number;
+    }
+  ];
+};
+
+type SubscriptionDeltaEvent = {
+  feed: "book";
+  product_id: string;
+  side: "buy" | "sell" | string;
+  seq: number;
+  price: number;
+  qty: number;
+};
+
+type WebSocketEvent = InvalidEvent | SubscribedEvent;
 
 export const useReactQuerySubscription = () => {
   const queryClient = useQueryClient();
@@ -34,22 +61,24 @@ export const useReactQuerySubscription = () => {
     };
 
     websocket.current.onmessage = (event) => {
-      console.log("🚁 received event", event);
+      // console.log("🚁 received event", event);
 
       const data: WebSocketEvent = JSON.parse(event.data);
-      console.log('file: useReactQuerySubscription.ts ~ line 40 ~ React.useEffect ~ data', data)
 
-      switch (data.operation) {
+      switch (data.event) {
         case "invalidate":
-          queryClient.invalidateQueries([...data.entity].filter(Boolean));
+          queryClient.invalidateQueries([...data.product_ids].filter(Boolean));
           break;
-        case "update":
-          queryClient.setQueriesData(data.entity, (oldData) => {
-            const update = (entity: Record<string, unknown>) => entity;
-            return Array.isArray(oldData)
-              ? oldData.map(update)
-              : update(oldData as Record<string, unknown>);
-          });
+        case "subscribe":
+          console.log(data);
+
+          // queryClient.setQueriesData(data.product_ids, (oldData) => {
+          //   const update = (product_ids: Record<string, unknown>) =>
+          //     product_ids;
+          //   return Array.isArray(oldData)
+          //     ? oldData.map(update)
+          //     : update(oldData as Record<string, unknown>);
+          // });
           break;
       }
     };
@@ -60,6 +89,7 @@ export const useReactQuerySubscription = () => {
   }, [queryClient]);
 
   return (input: WebSocketEvent) => {
-    websocket.current?.send(JSON.stringify(input));
+    const payload = JSON.stringify(input);
+    websocket.current?.send(payload);
   };
 };
