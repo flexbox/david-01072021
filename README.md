@@ -7,7 +7,7 @@
 - [x] `eslint`|`prettier`
 - [x] `@shopify/restyle`
 - [x] Shipped on Vercel
-- [-] Added github action
+- [ ] Added github action
 
 ## Getting Started
 
