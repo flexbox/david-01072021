@@ -16,6 +16,11 @@ yarn
 yarn ios|android
 ```
 
+## Demo
+
+- Web: [https://web-build-hazel.vercel.app](https://web-build-hazel.vercel.app)
+- Native: [https://expo.dev/@flexbox/david-01072021](https://expo.dev/@flexbox/david-01072021)
+
 ## API
 
 - Use [websocat](https://github.com/vi/websocat) to test the API
@@ -36,12 +41,3 @@ websocat wss://www.cryptofacilities.com/ws/v1
 ## Credentials
 
 - Thanks [to Madison Apple](https://thenounproject.com/search/?q=kraken&i=1122668)
-
-## TODO
-
-- [ ] `react-query`
-- [ ] Shipped on Vercel
-
-hint
-
-- https://tkdodo.eu/blog/using-web-sockets-with-react-query
